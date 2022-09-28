@@ -2,12 +2,18 @@
 
 include_once __DIR__ . '/Product.php';
 
-class PetFood extends Product {
-    public $type;
+class PetFood extends Product
+{
 
     function __construct($param)
     {
         parent::__construct($param);
-        $this->type = $param['type'];
+    }
+
+    public function setType($type)
+    {
+        if (is_string($type)) {
+            $this->type = $type;
+        }
     }
 }

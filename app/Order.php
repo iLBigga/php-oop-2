@@ -2,8 +2,7 @@
 
 class Order
 {
-    public $products = [];
-    public $total;
+    private $total;
 
     function __construct($product)
     {
@@ -11,7 +10,7 @@ class Order
         $this->getPrice($product);
     }
 
-    public function getPrice($products) {
+    private function getPrice($products) {
         foreach($products as $product)
             $this->total += ($product->getPrice() * $product->getQuantity());
     }

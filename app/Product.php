@@ -1,6 +1,7 @@
 <?php
 
-class Product {
+class Product
+{
     public $name;
     public $description;
     public $brand;
@@ -20,12 +21,14 @@ class Product {
         return $this->price;
     }
 
-    public function getQuantity(){
+    public function getQuantity()
+    {
         return $this->quantity;
     }
 
-    public function setQuantity($quantity){
-        if(is_int($quantity)) {
+    public function setQuantity($quantity)
+    {
+        if (is_int($quantity)) {
             $this->quantity = $quantity;
         }
     }
