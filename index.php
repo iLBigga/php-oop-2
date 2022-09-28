@@ -45,7 +45,11 @@ $data = [
 ];
 
 $palla = new PetToy($data);
-$palla->setQuantity(5);
+try {
+    $palla->setQuantity('5');
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
 $palla->setMaterial('Cotone');
 var_dump($palla);
 
@@ -57,7 +61,11 @@ $data = [
 ];
 
 $sabbiaPerLettiere = new PetAccessory($data);
-$sabbiaPerLettiere->setQuantity(3);
+try {
+    $sabbiaPerLettiere->setQuantity(5);
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
 $sabbiaPerLettiere->setScented('Borotaclo');
 $sabbiaPerLettiere->setMaterials(['Sabbia di quarzo', 'calce naturale']);
 var_dump($sabbiaPerLettiere);
@@ -70,9 +78,17 @@ $data = [
 ];
 
 $cuccia = new PetAccessory($data);
-$cuccia->setQuantity(3);
+try {
+    $cuccia->setQuantity(4);
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
 $cuccia->setColor('Marrone');
-$cuccia->setSize([75, 66, 20]);
+try{
+    $cuccia->setSize([75, 66, 20]);
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
 $cuccia->setMaterials(['Tessuto Oxford', 'Tessuno Felpato']);
 var_dump($cuccia);
 
