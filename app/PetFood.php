@@ -14,6 +14,8 @@ class PetFood extends Product
     {
         if (is_string($type)) {
             $this->type = $type;
+        } else {
+            throw new Exception('Invalid type');
         }
     }
 }

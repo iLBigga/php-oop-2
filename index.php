@@ -2,7 +2,7 @@
 
 include_once __DIR__ . '/app/PetFood.php';
 include_once __DIR__ . '/app/PetToy.php';
-include_once __DIR__ . '/app/LitterSand.php';
+include_once __DIR__ . '/app/PetAccessory.php';
 include_once __DIR__ . '/app/Order.php';
 
 $data = [
@@ -13,7 +13,11 @@ $data = [
 ];
 
 $crocchette = new PetFood($data);
-$crocchette->setQuantity(8);
+try {
+    $crocchette->setQuantity(8);
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
 $crocchette->setType('Secco');
 var_dump($crocchette);
 
@@ -26,7 +30,11 @@ $data = [
 
 $patè = new PetFood($data);
 $patè->setQuantity(3);
-$patè->setType('Umido');
+try {
+    $patè->setType('Umido');
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
 var_dump($patè);
 
 $data = [
@@ -48,12 +56,25 @@ $data = [
     'description' => 'Sicura, naturale e non tossica: la lettiera è prodotta utilizzando solo fibre vegetali e non contiene additivi, quindi è sicura per il vostro gatto e per tutta la famiglia.',
 ];
 
-$litterSand = new LitterSand($data);
-$litterSand->setQuantity(3);
-$litterSand->setScented('Borotaclo');
-$litterSand->setMaterial('Sabbia di quarzo e calce naturale');
-var_dump($litterSand);
+$sabbiaPerLettiere = new PetAccessory($data);
+$sabbiaPerLettiere->setQuantity(3);
+$sabbiaPerLettiere->setScented('Borotaclo');
+$sabbiaPerLettiere->setMaterials(['Sabbia di quarzo', 'calce naturale']);
+var_dump($sabbiaPerLettiere);
 
+$data = [
+    'name' => 'Cuccia per cani',
+    'price' => 32.89,
+    'brand' => 'Feandrea',
+    'description' => 'Rendi il tuo cucciolo ancora più felice con la sua cuccia personale',
+];
 
-$order = new Order([$crocchette, $palla, $litterSand]);
+$cuccia = new PetAccessory($data);
+$cuccia->setQuantity(3);
+$cuccia->setColor('Marrone');
+$cuccia->setSize([75, 66, 20]);
+$cuccia->setMaterials(['Tessuto Oxford', 'Tessuno Felpato']);
+var_dump($cuccia);
+
+$order = new Order([$crocchette, $palla, $sabbiaPerLettiere, $cuccia]);
 var_dump($order);

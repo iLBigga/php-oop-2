@@ -30,6 +30,8 @@ class Product
     {
         if (is_int($quantity)) {
             $this->quantity = $quantity;
+        } else {
+            throw new Exception('invalid quantity');
         }
     }
 }
