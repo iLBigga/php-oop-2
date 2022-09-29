@@ -5,6 +5,7 @@ include_once __DIR__ . '/app/PetToy.php';
 include_once __DIR__ . '/app/PetAccessory.php';
 include_once __DIR__ . '/app/Order.php';
 
+
 $data = [
     'name' => 'Crocchette cane adulto con manzo',
     'price' => 28.49,
@@ -12,7 +13,7 @@ $data = [
     'description' => 'La confezione contiene 12 kg di Friskies Crocchette Cane Adulto con Manzo, Cereali e Verdure',
 ];
 
-$crocchette = new PetFood($data);
+$crocchette = new PetFood($data); 
 try {
     $crocchette->setQuantity(8);
 } catch (Exception $e) {
@@ -20,6 +21,7 @@ try {
 }
 $crocchette->setType('Secco');
 var_dump($crocchette);
+
 
 $data = [
     'name' => 'Purina gourmet',
@@ -36,6 +38,7 @@ try {
     echo $e->getMessage();
 }
 var_dump($patè);
+
 
 $data = [
     'name' => 'Palla da tennis con corda',
@@ -54,11 +57,12 @@ try {
 }
 var_dump($palla);
 
+
 $data = [
-    'name' => 'Sabbia per lettiera gatti',
-    'price' => 15.21,
-    'brand' => 'Almo nature',
-    'description' => 'Sicura, naturale e non tossica: la lettiera è prodotta utilizzando solo fibre vegetali e non contiene additivi, quindi è sicura per il vostro gatto e per tutta la famiglia.',
+    'name' => 'Robot Mouse',
+    'price' => 2.5,
+    'brand' => 'Mouse Robotic',
+    'description' => 'Fai divertitre il tuo gatto con il nuovo Topolino automatizzato',
 ];
 
 $topolino = new PetToy($data);
@@ -70,6 +74,7 @@ try {
     echo $e->getMessage();
 }
 var_dump($topolino);
+
 
 $sabbiaPerLettiere = new PetAccessory($data);
 try {
@@ -87,6 +92,7 @@ $data = [
     'description' => 'Rendi il tuo cucciolo ancora più felice con la sua cuccia personale',
 ];
 
+
 $cuccia = new PetAccessory($data);
 try {
     $cuccia->setQuantity(4);
@@ -94,8 +100,8 @@ try {
     echo $e->getMessage();
 }
 $cuccia->setMaterials(['Tessuto Oxford', 'Fibra di poliestere']);
-
 var_dump($cuccia);
+
 
 $order = new Order([$crocchette, $palla, $sabbiaPerLettiere, $cuccia]);
 var_dump($order);
