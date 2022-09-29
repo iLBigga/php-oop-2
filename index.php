@@ -45,12 +45,13 @@ $data = [
 ];
 
 $palla = new PetToy($data);
+$palla->setTarget('Cane');
+$palla->setMaterials(['Cotone', 'Gomma']);
 try {
-    $palla->setQuantity('5');
+    $palla->setQuantity(5);
 } catch (Exception $e) {
     echo $e->getMessage();
 }
-$palla->setMaterial('Cotone');
 var_dump($palla);
 
 $data = [
@@ -60,14 +61,23 @@ $data = [
     'description' => 'Sicura, naturale e non tossica: la lettiera è prodotta utilizzando solo fibre vegetali e non contiene additivi, quindi è sicura per il vostro gatto e per tutta la famiglia.',
 ];
 
+$topolino = new PetToy($data);
+$topolino->setTarget('Gatto');
+$topolino->setMaterials('Peluche');
+try {
+    $topolino->setQuantity(2);
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
+var_dump($topolino);
+
 $sabbiaPerLettiere = new PetAccessory($data);
 try {
     $sabbiaPerLettiere->setQuantity(5);
 } catch (Exception $e) {
     echo $e->getMessage();
 }
-$sabbiaPerLettiere->setScented('Borotaclo');
-$sabbiaPerLettiere->setMaterials(['Sabbia di quarzo', 'calce naturale']);
+$sabbiaPerLettiere->setMaterials(['Cristalli di silice', 'Tofu']);
 var_dump($sabbiaPerLettiere);
 
 $data = [
@@ -83,13 +93,8 @@ try {
 } catch (Exception $e) {
     echo $e->getMessage();
 }
-$cuccia->setColor('Marrone');
-try{
-    $cuccia->setSize([75, 66, 20]);
-} catch (Exception $e) {
-    echo $e->getMessage();
-}
-$cuccia->setMaterials(['Tessuto Oxford', 'Tessuno Felpato']);
+$cuccia->setMaterials(['Tessuto Oxford', 'Fibra di poliestere']);
+
 var_dump($cuccia);
 
 $order = new Order([$crocchette, $palla, $sabbiaPerLettiere, $cuccia]);
