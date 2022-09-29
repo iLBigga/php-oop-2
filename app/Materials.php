@@ -1,6 +1,7 @@
 <?php
 
 trait Materials {
+    
     public $materials;
 
     public function setMaterials($materials){

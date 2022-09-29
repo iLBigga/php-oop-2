@@ -4,11 +4,7 @@ include_once __DIR__ . '/Product.php';
 
 class PetFood extends Product
 {
-
-    function __construct($param)
-    {
-        parent::__construct($param);
-    }
+    public $type;
 
     public function setType($type)
     {
