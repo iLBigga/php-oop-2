@@ -86,7 +86,7 @@ try {
 }
 $sabbiaPerLettiere->setMaterials(['Cristalli di silice', 'Tofu']);
 $sabbiaPerLettiere->setCategory('Igene dell\'animale');
-$topolino->addSize([21, 18, 26]);
+$sabbiaPerLettiere->addSize([21, 18, 26]);
 var_dump($sabbiaPerLettiere);
 
 
