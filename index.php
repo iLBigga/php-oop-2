@@ -61,7 +61,7 @@ var_dump($palla);
 
 $data = [
     'name' => 'Robot Mouse',
-    'price' => 2.5,
+    'price' => 2.50,
     'brand' => 'Mouse Robotic',
     'description' => 'Fai divertitre il tuo gatto con il nuovo Topolino automatizzato',
 ];
@@ -76,6 +76,13 @@ $topolino->setTarget('Gatto');
 $topolino->setMaterials('Peluche');
 $topolino->addSize([12, 4, 3]);
 var_dump($topolino);
+
+$data = [
+    'name' => 'Sabbia lettiera naturale',
+    'price' => 21.99,
+    'brand' => 'Amazing Sand',
+    'description' => 'Migliora l\'esperieza sensoriale del tuo gatto e soprattuo Elimina i cattivi odori',
+];
 
 
 $sabbiaPerLettiere = new PetAccessory($data);
